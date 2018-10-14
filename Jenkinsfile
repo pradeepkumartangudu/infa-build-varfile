@@ -26,9 +26,8 @@ pipeline {
 		export AWS_ACCESS_KEY_ID=$access_key
 		export AWS_SECRET_ACCESS_KEY=$secret_key
 		./terraform init -backend-config="access_key=$access_key" -backend-config="secret_key=$secret_key" -backend-config="key=runtime/$bucketname/terraform.tfstate"
-		./terraform plan -var bucketname=$bucketname -var key=runtime/$bucketname/terraform.tfstate -var-file="./dev-bucket-variables/$bucketname.tfvars" -out=current.tfplan
-		
-'''
+		./terraform plan -var bucketname=$bucketname -var key=runtime/$bucketname/terraform.tfstate -var-file="./dev-bucket-variables/$bucketname.tfvars" -out=current.tfplan		
+		'''
             }
         }
          stage("Run unit tests"){
