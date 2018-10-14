@@ -22,10 +22,11 @@ pipeline {
 		pwd
 		echo $tf_path
 		#sudo cp aws_config.tf $tf_path
+		git clone https://github.com/pradeepkumartangudu/dev-bucket-variables.git
 		export AWS_ACCESS_KEY_ID=$access_key
 		export AWS_SECRET_ACCESS_KEY=$secret_key
 		./terraform init -backend-config="access_key=$access_key" -backend-config="secret_key=$secret_key" -backend-config="key=runtime/$bucketname/terraform.tfstate"
-		./terraform plan -var key=runtime/$bucketname/terraform.tfstate -out=current.tfplan
+		./terraform plan -var bucketname=$bucketname  -var key=runtime/$bucketname/terraform.tfstate -var-file=$bucketname.tfvars -out=current.tfplan
 		
 '''
             }
