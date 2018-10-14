@@ -10,8 +10,8 @@ variable "kms_key_id" {}
 
 module "bucket" {
   source      = "./buckets"
-  #name        = "mysoft-${var.bucketname}-us-east-1"
-  name        = "${var.environment}-${var.bucketname}-${var.aws_region}"
+  name        = "mysoft-${var.bucketname}-us-east-1"
+  #name        = "${var.environment}-${var.bucketname}-${var.aws_region}"
   environment = "${var.environment}"
   foundation  = "${var.foundation}"
   costcenter  = "${var.costcenter}"
