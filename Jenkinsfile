@@ -26,7 +26,7 @@ pipeline {
 		export AWS_ACCESS_KEY_ID=$access_key
 		export AWS_SECRET_ACCESS_KEY=$secret_key
 		./terraform init -backend-config="access_key=$access_key" -backend-config="secret_key=$secret_key" -backend-config="key=runtime/$bucketname/terraform.tfstate"
-		./terraform plan -var-file="/root/.jenkins/workspace/Terraform-Aws/infa-build-varfile/dev-bucket-variables/bucket1.tfvars" -out=current.tfplan		
+		./terraform plan -var-file="dev-bucket-variables/bucket1.tfvars" -out=current.tfplan		
 		'''
             }
         }
@@ -40,7 +40,7 @@ pipeline {
 		export AWS_ACCESS_KEY_ID=$access_key
 		export AWS_SECRET_ACCESS_KEY=$secret_key
 		set +x
-		./terraform apply current.tfplan
+		#./terraform apply current.tfplan
 		
 '''
 	  
