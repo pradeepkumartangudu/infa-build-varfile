@@ -22,6 +22,7 @@ pipeline {
 		pwd
 		echo $tf_path
 		#sudo cp aws_config.tf $tf_path
+		rm -rf dev-bucket-variables
 		git clone https://github.com/pradeepkumartangudu/dev-bucket-variables.git
 		export AWS_ACCESS_KEY_ID=$access_key
 		export AWS_SECRET_ACCESS_KEY=$secret_key
